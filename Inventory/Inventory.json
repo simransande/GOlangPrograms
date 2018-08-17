@@ -1,0 +1,30 @@
+{
+    "Inventory":[
+        {
+            "name":"RICE",
+            "price":100,
+            "weight":10
+
+        },
+        {
+            "name":"PULSE",
+            "price":200,
+            "weight":5
+
+        },
+        {
+            "name":"WHEAT",
+            "price":200,
+            "weight":5
+
+        },
+        {
+            "name":"SIMRAN",
+            "price":150,
+            "weight":15
+
+        }
+    
+    ]
+
+}

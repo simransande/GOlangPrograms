@@ -2,63 +2,6 @@ package main
 
 import "fmt"
 
-// type Node struct {
-// 	prev *Node
-// 	next *Node
-// 	currentNode.Value=0
-// }
-// type SinglyLinkedList struct {
-// 	front *Node
-
-// 	length int
-// }
-
-// func (s *SinglyLinkedList) Prepend(n *Node) {
-// 	if s.front == nil {
-// 		s.front = n
-// 	} else {
-// 		n.next = s.front
-// 		s.front = n
-// 	}
-
-// 	s.length++
-// }
-
-// func (s *SinglyLinkedList) Remove(n *Node) {
-// 	if s.front == n {
-// 		s.front = n.next
-// 		s.length--
-// 	} else {
-// 		currentNode := s.front
-
-// 		// search for node n
-// 		for currentNode != nil && currentNode.next != nil && currentNode.next != n {
-// 			currentNode = currentNode.next
-// 		}
-
-// 		// see if current's next node is n
-// 		// if it's not n, then node n wasn't found in list s
-// 		if currentNode.next == n {
-// 			currentNode.next = currentNode.next.next
-// 			s.length--
-// 		}
-// 	}
-// }
-
-// func (s *SinglyLinkedList) Find(value interface{}) *Node {
-// 	currentNode := s.front
-// 	for currentNode != nil && currentNode.Value != value && currentNode.next != nil {
-// 		currentNode = currentNode.next
-// 	}
-
-// 	return currentNode
-// }
-
-// // Length returns the amount of nodes in list s
-// func (s *SinglyLinkedList) Length() int {
-// 	return s.length
-// }
-
 type Node struct {
 	prev *Node
 	next *Node
@@ -90,43 +33,46 @@ func (L *List) Insert(key interface{}) {
 func (l *List) Display() {
 	list := l.head
 	for list != nil {
-		fmt.Printf("%+v ->", list.key)
+		fmt.Printf("%v ", list.key)
 		list = list.next
 	}
 	fmt.Println()
 }
 
-func search(data) {
-	list := &Node{}
-}
-
-func Display(list *Node) {
+func (l *List) Search(data string) bool {
+	list := l.head
 	for list != nil {
-		fmt.Printf("%v ->", list.key)
+		if list.key == data {
+			return true
+		}
+
 		list = list.next
+
 	}
-	fmt.Println()
+	return false
+
 }
 
-func ShowBackwards(list *Node) {
-	for list != nil {
-		fmt.Printf("%v <-", list.key)
-		list = list.prev
+func (l *List) Delete(data1 string) {
+	list := l.head
+	list1 := l.head
+	if list.key == data1 {
+		l.head = list.next
+	} else {
+		for list == list1 {
+			list1 = list.next
+		}
+		if list.key == data1 {
+			list1.next = list.next
+		}
 	}
-	fmt.Println()
+
 }
 
-func (l *List) Reverse() {
-	curr := l.head
-	var prev *Node
-	l.tail = l.head
-
-	for curr != nil {
-		next := curr.next
-		curr.next = prev
-		prev = curr
-		curr = next
-	}
-	l.head = prev
-	Display(l.head)
-}
+// func Display(list *Node) {
+// 	for list != nil {
+// 		fmt.Printf("%v ->", list.key)
+// 		list = list.next
+// 	}
+// 	fmt.Println()
+// }
